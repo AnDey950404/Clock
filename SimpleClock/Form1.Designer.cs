@@ -40,12 +40,21 @@
             this.txtDate = new System.Windows.Forms.TextBox();
             this.txtTime = new System.Windows.Forms.TextBox();
             this.碼表 = new System.Windows.Forms.TabPage();
+            this.btnStop = new System.Windows.Forms.Button();
+            this.btnLog = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnPause = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.listStopWatchLog = new System.Windows.Forms.ListBox();
+            this.txtStopWatch = new System.Windows.Forms.TextBox();
             this.倒數 = new System.Windows.Forms.TabPage();
             this.timerClcok = new System.Windows.Forms.Timer(this.components);
             this.timerAlert = new System.Windows.Forms.Timer(this.components);
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.timerStopWatch = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.時鐘.SuspendLayout();
+            this.碼表.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -144,6 +153,13 @@
             // 
             // 碼表
             // 
+            this.碼表.Controls.Add(this.btnStop);
+            this.碼表.Controls.Add(this.btnLog);
+            this.碼表.Controls.Add(this.btnReset);
+            this.碼表.Controls.Add(this.btnPause);
+            this.碼表.Controls.Add(this.btnStart);
+            this.碼表.Controls.Add(this.listStopWatchLog);
+            this.碼表.Controls.Add(this.txtStopWatch);
             this.碼表.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.碼表.Location = new System.Drawing.Point(4, 22);
             this.碼表.Name = "碼表";
@@ -152,6 +168,80 @@
             this.碼表.TabIndex = 1;
             this.碼表.Text = "碼表";
             this.碼表.UseVisualStyleBackColor = true;
+            // 
+            // btnStop
+            // 
+            this.btnStop.BackColor = System.Drawing.Color.Red;
+            this.btnStop.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnStop.Location = new System.Drawing.Point(242, 232);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(276, 34);
+            this.btnStop.TabIndex = 7;
+            this.btnStop.Text = "停止並歸零";
+            this.btnStop.UseVisualStyleBackColor = false;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
+            // btnLog
+            // 
+            this.btnLog.Location = new System.Drawing.Point(383, 191);
+            this.btnLog.Name = "btnLog";
+            this.btnLog.Size = new System.Drawing.Size(135, 35);
+            this.btnLog.TabIndex = 6;
+            this.btnLog.Text = "紀錄";
+            this.btnLog.UseVisualStyleBackColor = true;
+            this.btnLog.Click += new System.EventHandler(this.btnLog_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(242, 191);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(135, 35);
+            this.btnReset.TabIndex = 5;
+            this.btnReset.Text = "歸零";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnPause
+            // 
+            this.btnPause.BackColor = System.Drawing.Color.Yellow;
+            this.btnPause.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnPause.Location = new System.Drawing.Point(383, 150);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(135, 35);
+            this.btnPause.TabIndex = 4;
+            this.btnPause.Text = "暫停";
+            this.btnPause.UseVisualStyleBackColor = false;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(242, 150);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(135, 35);
+            this.btnStart.TabIndex = 3;
+            this.btnStart.Text = "開始";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // listStopWatchLog
+            // 
+            this.listStopWatchLog.FormattingEnabled = true;
+            this.listStopWatchLog.ItemHeight = 21;
+            this.listStopWatchLog.Location = new System.Drawing.Point(7, 150);
+            this.listStopWatchLog.Name = "listStopWatchLog";
+            this.listStopWatchLog.Size = new System.Drawing.Size(228, 235);
+            this.listStopWatchLog.TabIndex = 2;
+            // 
+            // txtStopWatch
+            // 
+            this.txtStopWatch.Enabled = false;
+            this.txtStopWatch.Font = new System.Drawing.Font("新細明體", 99.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtStopWatch.Location = new System.Drawing.Point(6, 6);
+            this.txtStopWatch.Multiline = true;
+            this.txtStopWatch.Name = "txtStopWatch";
+            this.txtStopWatch.Size = new System.Drawing.Size(756, 137);
+            this.txtStopWatch.TabIndex = 1;
+            this.txtStopWatch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // 倒數
             // 
@@ -169,11 +259,16 @@
             // 
             // timerAlert
             // 
-            this.timerAlert.Tick += new System.EventHandler(this.timerAlert_Tick_1);
+            //this.timerAlert.Tick += new System.EventHandler(this.timerAlert_Tick_1);
             // 
             // timer
             // 
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            //this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // timerStopWatch
+            // 
+            this.timerStopWatch.Interval = 1;
+            //this.timerStopWatch.Tick += new System.EventHandler(this.timerStopWatch_Tick);
             // 
             // Form1
             // 
@@ -187,6 +282,8 @@
             this.tabControl1.ResumeLayout(false);
             this.時鐘.ResumeLayout(false);
             this.時鐘.PerformLayout();
+            this.碼表.ResumeLayout(false);
+            this.碼表.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -207,6 +304,14 @@
         private System.Windows.Forms.Timer timerClcok;
         private System.Windows.Forms.Timer timerAlert;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.Button btnLog;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnPause;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.ListBox listStopWatchLog;
+        private System.Windows.Forms.TextBox txtStopWatch;
+        private System.Windows.Forms.Timer timerStopWatch;
     }
 }
 
