@@ -169,11 +169,11 @@
             // 
             // timerAlert
             // 
-            this.timerAlert.Tick += new System.EventHandler(this.timerAlert_Tick);
+            this.timerAlert.Tick += new System.EventHandler(this.timerAlert_Tick_1);
             // 
             // timer
             // 
-            this.timer.Tick += new System.EventHandler(this.timer_Tick_1);
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // Form1
             // 

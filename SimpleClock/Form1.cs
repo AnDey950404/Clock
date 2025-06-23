@@ -83,7 +83,7 @@ namespace SimpleClock
                 finally
                 {
                     timerAlert.Stop(); // 停止鬧鐘計時器
-                }
+                }                
             }
         }
 
@@ -107,11 +107,21 @@ namespace SimpleClock
         }
 
         private void btnCancelAlert_Click(object sender, EventArgs e)
-        {
+        {           
             stopWaveOut();     // 停止之前的播放
             timerAlert.Stop(); // 停止鬧鐘計時器
             btnSetAlert.Enabled = true;
             btnCancelAlert.Enabled = false;
+        }
+
+        private void timerAlert_Tick_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }
